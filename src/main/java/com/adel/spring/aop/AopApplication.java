@@ -7,9 +7,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.annotation.Order;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 @Order
 @Slf4j
+@EnableAsync
 @SpringBootApplication
 @EnableAspectJAutoProxy
 public class AopApplication implements CommandLineRunner {

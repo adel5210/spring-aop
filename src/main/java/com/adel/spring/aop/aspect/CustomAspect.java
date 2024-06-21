@@ -1,14 +1,17 @@
 package com.adel.spring.aop.aspect;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
 @Aspect
 @Component
+@Slf4j
 public class CustomAspect {
 
     //Just @Aspect
@@ -20,7 +23,7 @@ public class CustomAspect {
         final Object pt = point.proceed();
 
         stopWatch.stop();
-        System.out.println(stopWatch.prettyPrint());
+        log.info(stopWatch.prettyPrint());
 
         return pt;
     }
