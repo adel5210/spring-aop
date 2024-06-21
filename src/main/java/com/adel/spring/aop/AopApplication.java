@@ -9,6 +9,10 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.EnableAsync;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+
 @Order
 @Slf4j
 @EnableAsync
@@ -16,8 +20,10 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAspectJAutoProxy
 public class AopApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AopApplication.class, args);
+	public static void main(String[] args) throws ExecutionException, InterruptedException {
+//		CompletableFuture.runAsync(() -> {
+			SpringApplication.run(AopApplication.class, args);
+//		}).orTimeout(5, TimeUnit.SECONDS).get();
 	}
 
 	@Override
@@ -25,7 +31,7 @@ public class AopApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		log.info("Start main app");
 
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 
 		log.info("End main app");
 	}
