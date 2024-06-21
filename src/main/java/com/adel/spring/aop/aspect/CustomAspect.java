@@ -18,7 +18,8 @@ public class CustomAspect {
     @Around("@annotation(com.adel.spring.aop.annotation.LogExecTime)")
     public Object logExecTime(final ProceedingJoinPoint point) throws Throwable {
         final StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
+        stopWatch.currentTaskName();
+        stopWatch.start(point.toLongString());
 
         final Object pt = point.proceed();
 
