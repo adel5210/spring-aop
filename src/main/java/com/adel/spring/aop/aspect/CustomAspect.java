@@ -31,22 +31,19 @@ public class CustomAspect {
 
     //---------------------------------------------------------------------------------
 
-    @Pointcut("@target(com.adel.spring.aop.AopApplication)")
-    public void aopApplication(){}
-
-    @Pointcut("execution(* *..run(..))")
-    public void onRun(){}
-
-    @Pointcut("aopApplication() && onRun()")
-    public void joinPointCut(){}
-
-    @Around("joinPointCut()")
-    public Object logSomething(final ProceedingJoinPoint point) throws Throwable {
-        System.out.println("START PIN");
-        final Object proceed = point.proceed();
-        System.out.println("END PIN");
-        return proceed;
-    }
+//    @Pointcut("execution(* com.adel.spring.aop.AopApplication.run(..))")
+//    public void onRun(){}
+//
+//    @Pointcut("onRun()")
+//    public void joinPointCut(){}
+//
+//    @Around("joinPointCut()")
+//    public Object logSomething(final ProceedingJoinPoint point) throws Throwable {
+//        System.out.println("START PIN");
+//        final Object proceed = point.proceed();
+//        System.out.println("END PIN");
+//        return proceed;
+//    }
 
 
 
